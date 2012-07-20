@@ -25,4 +25,41 @@ component extends="mxunit.framework.TestCase"{
 		//access the sturcture key in another way
 		assertEquals("__","Bar");
 	}
+
+	public void function testCopyByReference() {
+		var myStruct = {foo = {bar = "Bar", num = 1}, fb = "FB"};
+
+		// Basic copy
+		var myStructCopy = myStruct;
+		myStructCopy.fb = "yellow";
+
+		assertEquals(myStruct.fb, "__");
+	}
+
+	public void function testCopyByStructCopy() {
+		var myStruct = {foo = {bar = "Bar", num = 1}, fb = "FB"};
+
+		// Use structCopy
+		var myStructCopy = structCopy(myStruct);
+		myStructCopy.fb = "yellow";
+		myStructCopy.foo.bar = "green";
+
+		assertEquals(myStruct.fb, "__");
+		assertEquals(myStruct.foo.bar, "__");
+	}
+
+	public void function testCopyByDuplicate() {
+		var myStruct = {foo = {bar = "Bar", num = 1}, fb = "FB"};
+
+		// Use duplicate here
+		var myStructCopy = duplicate(myStruct);
+
+		myStructCopy.fb = "yellow";
+		myStructCopy.foo.bar = "green";
+
+		// Notice how each way to copy the struct affects nested structs
+		assertEquals(myStruct.fb, "__");
+		assertEquals(myStruct.foo.bar, "__");
+	}
+
 }
