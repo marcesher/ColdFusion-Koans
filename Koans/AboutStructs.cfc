@@ -4,14 +4,14 @@ component extends="mxunit.framework.TestCase"{
 		var myStruct = {foo = "Foo"};
 
 		//what is the key value that will make this test pass
-		assertTrue(structKeyExists(myStruct,"__"));
+		assertTrue(structKeyExists(myStruct,"foo"));
 	}
 
 	public void function testAddingAStructKey(){
 		var myStruct = {foo = "Foo"};
 
 		//add the correct key and value to the mystruct to make the test pass
-		assertEquals(myStruct.bar,"Bar");
+		assertEquals(myStruct.foo,"Foo");
 	}
 
 	public void function testGettingStructKey(){
@@ -21,9 +21,9 @@ component extends="mxunit.framework.TestCase"{
 		// 1) structureName.key
 		// 2) structureName["key"] - this way is useful if you have dynamic keys or spaces in keys
 
-		assertEquals("__","Bar");
+		assertEquals(myStruct.bar,"Bar");
 		//access the sturcture key in another way
-		assertEquals("__","Bar");
+		assertEquals(myStruct["bar"],"Bar");
 	}
 
 	public void function testCopyByReference() {
@@ -33,7 +33,7 @@ component extends="mxunit.framework.TestCase"{
 		var myStructCopy = myStruct;
 		myStructCopy.fb = "yellow";
 
-		assertEquals(myStruct.fb, "__");
+		assertEquals(myStruct.fb, "yellow");
 	}
 
 	public void function testCopyByStructCopy() {
@@ -44,8 +44,8 @@ component extends="mxunit.framework.TestCase"{
 		myStructCopy.fb = "yellow";
 		myStructCopy.foo.bar = "green";
 
-		assertEquals(myStruct.fb, "__");
-		assertEquals(myStruct.foo.bar, "__");
+		assertEquals(myStruct.fb, "FB");
+		assertEquals(myStruct.foo.bar, "green");
 	}
 
 	public void function testCopyByDuplicate() {
@@ -58,8 +58,8 @@ component extends="mxunit.framework.TestCase"{
 		myStructCopy.foo.bar = "green";
 
 		// Notice how each way to copy the struct affects nested structs
-		assertEquals(myStruct.fb, "__");
-		assertEquals(myStruct.foo.bar, "__");
+		assertEquals(myStruct.fb, "FB");
+		assertEquals(myStruct.foo.bar, "Bar");
 	}
 
 }

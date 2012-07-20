@@ -12,22 +12,22 @@ component extends="mxunit.framework.TestCase"{
 		assertEquals(trim(myVar),"__");
 	}
 
-	public void function testSearchingStirng(){
+	public void function testSearchingString(){
 		var myVar = "To start press any key.  Wheres the any key?";
 
-		assertEquals(findNoCase(myVar,"ANY"),"__");
+		assertEquals(findNoCase("ANY",myVar),"__");
 	}
 
-	public void function testSearchingStirng2(){
+	public void function testSearchingString2(){
 		var myVar = "To start press any key.  Wheres the any key?";
 
-		assertEquals(findNoCase(myVar,"ANY",26),"__");
+		assertEquals(findNoCase("ANY",myVar,26),"__");
 	}
 
-	public void function testSearchingStirng3(){
+	public void function testSearchingString3(){
 		var myVar = "To start press any key.  Wheres the any key?";
 
-		assertEquals(find(myVar,"ANY",26),"__");
+		assertEquals(find("ANY",myVar,26),"__");
 	}
 
 	public void function testStringReplace(){

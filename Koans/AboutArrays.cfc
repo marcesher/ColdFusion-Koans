@@ -3,14 +3,14 @@ component extends="mxunit.framework.TestCase"{
 	public void function testGetingArrayLength(){
 		var myArray = ["one","two","three"];
 
-		assertEquals(arrayLen(myArray),"__");
+		assertEquals(arrayLen(myArray),3);
 	}
 
 	public void function testGettingArrayElement(){
 		var myArray = ["one","two","three"];
 		
 		//arrays in coldfusion start with an index of one, not zero like a lot of languages
-		assertEquals(myArray[1],"__");		
+		assertEquals(myArray[1],"one");		
 	}
 
 	private String function returnString(String myArg){
@@ -22,7 +22,7 @@ component extends="mxunit.framework.TestCase"{
 		
 		arrayAppend(myArray,"four");
 		
-		assertEquals(myArray[4],"__");
+		assertEquals(myArray[4],"four");
 	}
 
 	public void function testArrayTextSorting(){
@@ -30,7 +30,7 @@ component extends="mxunit.framework.TestCase"{
 
 		arraySort(myArray,"text");
 
-		assertEquals(myArray[2],"__");
+		assertEquals(myArray[2],"grape");
 	}
 
 	public void function testArrayNumberSorting(){
@@ -38,6 +38,6 @@ component extends="mxunit.framework.TestCase"{
 
 		arraySort(myArray,"numeric");
 
-		assertEquals(myArray[3],"__");
+		assertEquals(myArray[3],9);
 	}
 }
