@@ -2,7 +2,7 @@ component extends="mxunit.framework.TestCase"{
 
 	public void function testTrueShouldBeTrue(){
 		//try replacing false with true
-		assertTrue(false);
+		assertTrue(true);
 	}	
 
 	public void function testStringsShouldBeEqual(){
@@ -10,7 +10,7 @@ component extends="mxunit.framework.TestCase"{
 		
 		//in the koans __ represents a value that you need to fill in to make the test return true
 		//in some cases you'll want to keep the "" and in some you wont (see next example)
-		assertEquals(result,"__");
+		assertEquals(result,"Foo");
 	}
 
 	public void function testResultShouldBeEqual(){
@@ -18,6 +18,7 @@ component extends="mxunit.framework.TestCase"{
 
 		//sometimes you'll be filling out the actual value (like above) and sometimes you'll be 
 		//filling out the expected value like so:
-		assertEquals(result,"__"); //also note that the "" are optional here
+		assertEquals(result,5); //also note that the "" are optional here
+		assertEquals(result,"5");
 	}
 }
